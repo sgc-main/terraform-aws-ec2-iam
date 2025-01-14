@@ -158,7 +158,7 @@ resource "aws_iam_role_policy_attachment" "bucket_policy" {
 resource "aws_iam_role_policy_attachment" "directory_service_policy" {
   for_each = toset(local.attach_ds_policy)
 
-  role       = aws_iam_role.your_role_name.name
+  role       = aws_iam_role.role.name
   policy_arn = aws_iam_policy.directory_service_policy[each.key].arn
 }
 
